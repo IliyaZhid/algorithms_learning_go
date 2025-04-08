@@ -1,19 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	haystack := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}
-	needle := 9
-
-	index, ok := BinarySearch(haystack, needle)
-
-	if ok == true {
-		fmt.Printf("Индекс элемента - %d\n", index)
-	} else {
-		fmt.Println("Элемент не найден(")
-	}
-}
+package binary_search
 
 func BinarySearch(nums []int, target int) (int, bool) {
 	low := 0
