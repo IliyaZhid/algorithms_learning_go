@@ -4,7 +4,7 @@ import "fmt"
 
 type Node struct {
 	data int
-	next *Node
+	Next *Node
 }
 
 type LinkedList struct {
@@ -14,12 +14,12 @@ type LinkedList struct {
 }
 
 func (ll *LinkedList) AddNewHead(data int) {
-	newNode := &Node{data: data, next: ll.head}
+	newNode := &Node{data: data, Next: ll.head}
 
 	if ll.head == nil {
 		ll.tail = newNode
 	} else {
-		newNode.next = ll.head
+		newNode.Next = ll.head
 	}
 
 	ll.head = newNode
@@ -27,12 +27,12 @@ func (ll *LinkedList) AddNewHead(data int) {
 }
 
 func (ll *LinkedList) AddNewTail(data int) {
-	newNode := &Node{data: data, next: ll.head}
+	newNode := &Node{data: data, Next: ll.head}
 
 	if ll.tail == nil {
 		ll.head = newNode
 	} else {
-		ll.tail.next = newNode
+		ll.tail.Next = newNode
 	}
 
 	ll.tail = newNode
@@ -45,21 +45,21 @@ func (ll *LinkedList) Insert(after int, data int) {
 		if search.data == after {
 			break
 		}
-		search = search.next
+		search = search.Next
 	}
 
 	if search == nil {
 		return
 	}
 
-	newNode := &Node{data: data, next: nil}
+	newNode := &Node{data: data, Next: nil}
 
 	if search == ll.tail {
 		ll.tail = newNode
 	}
 
-	newNode.next = search.next
-	search.next = newNode
+	newNode.Next = search.Next
+	search.Next = newNode
 
 	ll.size++
 }
@@ -71,7 +71,7 @@ func (ll *LinkedList) Search(data int) *Node {
 		if search.data == data {
 			return search
 		}
-		search = search.next
+		search = search.Next
 	}
 
 	return nil
@@ -81,7 +81,7 @@ func (ll *LinkedList) PrintList() {
 	current := ll.head
 	for current != nil {
 		fmt.Print(current.data, " -> ")
-		current = current.next
+		current = current.Next
 	}
 	fmt.Println("nil")
 }
