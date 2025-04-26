@@ -6,6 +6,7 @@ func BinarySearch(nums []int, target int) (int, bool) {
 
 	for low <= high {
 		mid := (low + high) / 2
+		//mid := low + (high-low)/2  // если есть вероятность выйти за int32
 
 		if nums[mid] == target {
 			return mid, true
